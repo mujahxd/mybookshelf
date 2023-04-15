@@ -9,7 +9,12 @@ type User struct {
 	gorm.Model
 	Name           string `gorm:"not null;size:255"`
 	Email          string `gorm:"not null;size:255;uniqueIndex"`
-	PasswordHash   string `gorm:"not null"`
+	Password       string `gorm:"not null;size:255"`
 	AvatarFileName string `gorm:"size:255"`
 	Books          []book.Book
 }
+
+// Name           string            `json:"name" gorm:"type:varchar(45);not null"`
+// 	Username       string            `json:"username" gorm:"type:varchar(12);unique;primaryKey"`
+// 	Password       string            `json:"password" gorm:"type:varchar(255);not null"`
+// 	AvatarFileName string            `json:"avatar" gorm:"type:varchar(255)"`
