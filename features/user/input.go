@@ -9,3 +9,8 @@ type RegisterUserInput struct {
 type CheckEmailInput struct {
 	Email string `json:"email" validate:"required,email"`
 }
+
+type LoginInput struct {
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required"`
+}
