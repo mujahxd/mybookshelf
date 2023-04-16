@@ -1,6 +1,9 @@
 package helper
 
-import "github.com/go-playground/validator/v10"
+import (
+	"github.com/go-playground/validator/v10"
+	"golang.org/x/crypto/bcrypt"
+)
 
 type Response struct {
 	Meta Meta        `json:"meta"`
@@ -36,4 +39,8 @@ func FormatValidationError(err error) []string {
 	}
 
 	return errors
+}
+
+func VerifyPassword(hashedPassword string, candidatePassword string) error {
+	return bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(candidatePassword))
 }
